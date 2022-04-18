@@ -148,8 +148,7 @@ public class MainApplication {
     char[] inputNumber = scanner.nextLine().toCharArray();
 
     validateInputNumber(inputNumber);
-    scanner.close();
-
+    
     return convertToList(inputNumber);
   }
 }
