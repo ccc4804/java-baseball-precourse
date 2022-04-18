@@ -25,11 +25,6 @@ public class MainApplication {
       System.out.print("숫자를 입력해주세요 : ");
       List<Character> inputNumber = mainApplication.convertToList(scanner.nextLine().toCharArray());
 
-      if (!mainApplication.validateInputNumber(inputNumber)) {
-        System.out.println("중복 되지 않은 1~9까지의 3자리 숫자를 입력해주세요.");
-        continue;
-      }
-
       List<Character> tempRandomNumber = new LinkedList<>(randomNumber);
 
       int strike = mainApplication.validateStrike(tempRandomNumber, inputNumber);
@@ -45,18 +40,27 @@ public class MainApplication {
   }
 
   // 입력값 검증
-  public boolean validateInputNumber(List<Character> inputNumber) {
-    List<Character> numbers =
-        new LinkedList<>(Arrays.asList('1', '2', '3', '4', '5', '6', '7', '8', '9'));
-    Set<Character> characterSet = new HashSet<>(inputNumber);
+  public boolean validateInputNumber(char[] inputNumber) {
 
-    for (char c : inputNumber) {
-      if (!numbers.contains(c)) {
-        return false;
-      }
+    if (inputNumber.length != 3) {
+      throw new IllegalArgumentException();
     }
 
-    return characterSet.size() == 3;
+    Set<Character> inputNumberSet = new HashSet<>();
+
+    for (char c : inputNumber) {
+      if (c < 48 || c > 57) {
+        throw new IllegalArgumentException();
+      }
+
+      inputNumberSet.add(c);
+    }
+
+    if (inputNumberSet.size() != 3) {
+      throw new IllegalArgumentException();
+    }
+
+    return true;
   }
 
   // Convert char array to Character List
