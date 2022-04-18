@@ -125,7 +125,7 @@ public class MainApplication {
     }
 
     if (strike == 0 && ball == 0) {
-      System.out.print("4 볼");
+      System.out.print("낫싱");
     }
 
     System.out.println();
