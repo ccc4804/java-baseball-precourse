@@ -1,12 +1,4 @@
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
-
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import org.junit.jupiter.api.Test;
-
-public class MainApplicationTest {
+public class MainApplicationTest {/*
   @Test
   public static void main(String[] args) {}
 
@@ -73,4 +65,5 @@ public class MainApplicationTest {
     assertThat(mainApplication.validateBall(testRandomNumber3, testInputNumber3)).isEqualTo(1);
     assertThat(mainApplication.validateBall(testRandomNumber4, testInputNumber4)).isEqualTo(3);
   }
+  */
 }
