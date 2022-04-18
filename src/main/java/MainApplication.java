@@ -15,16 +15,13 @@ public class MainApplication {
     boolean exit = false;
     boolean newGame = true;
 
-    Scanner scanner = new Scanner(System.in);
     while (!exit) {
       if (newGame) {
         randomNumber = mainApplication.generateRandomNumber(3);
         newGame = false;
       }
 
-      System.out.print("숫자를 입력해주세요 : ");
-      List<Character> inputNumber = mainApplication.convertToList(scanner.nextLine().toCharArray());
-
+      List<Character> inputNumber = mainApplication.inputNumbers();
       List<Character> tempRandomNumber = new LinkedList<>(randomNumber);
 
       int strike = mainApplication.validateStrike(tempRandomNumber, inputNumber);
@@ -142,5 +139,17 @@ public class MainApplication {
     int input = scanner.nextInt();
 
     return input == 1;
+  }
+
+  public List<Character> inputNumbers() {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("숫자를 입력해주세요 : ");
+    char[] inputNumber = scanner.nextLine().toCharArray();
+
+    validateInputNumber(inputNumber);
+    scanner.close();
+
+    return convertToList(inputNumber);
   }
 }
